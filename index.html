@@ -1,0 +1,1334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Real Estate Website</title>
+  <link rel="stylesheet" href="styles.css">
+  <!-- Подключение стилей Swiper -->
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+<!-- Подключение скриптов Swiper -->
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+</head>
+<body>
+<!-- Header Section -->
+<header class="header">
+  <div class="logo">
+    <img src="jtOZqljdfqwqKa5IECNOMOdzvfLqbce3eLeq4sAOpJU1VEydC.jpg" alt="Logo">
+  </div>
+  <nav class="nav">
+    <ul class="nav-list">
+      <!-- Главная -->
+      <li class="dropdown">
+        <a href="#home" class="dropdown-button">Главная</a>
+      </li>
+      <!-- Каталог недвижимости -->
+      <li class="dropdown">
+        <a href="#catalog" class="dropdown-button">Каталог недвижимости</a>
+      </li>
+      <!-- О нас -->
+      <li class="dropdown">
+        <a href="#about-us" class="dropdown-button">О нас</a>
+      </li>
+      <!-- Услуги -->
+      <li class="dropdown">
+        <a href="#services" class="dropdown-button">Услуги</a>
+      </li>
+      <!-- Лучшее -->
+      <li class="dropdown">
+        <a href="#best" class="dropdown-button">Лучшее</a>
+      </li>
+      <!-- Поиск -->
+      <li class="dropdown">
+        <a href="#search" class="dropdown-button">Поиск</a>
+      </li>
+      <!-- Контакты -->
+      <li class="dropdown">
+        <a href="#contact" class="dropdown-button">Контакты</a>
+      </li>
+    </ul>
+  </nav>
+
+    
+    <div class="nav-left">
+<!-- Кнопка "Избранное" -->
+<a id="open-favorites-button" href="#">&#10084;</a>
+
+<!-- Модальное окно "Избранное" -->
+<div id="favorites-modal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeFavoritesModal()">&times;</span>
+    <h3>Избранное</h3>
+    <div class="favorites-list"></div>
+  </div>
+</div>
+
+
+<!-- Кнопка "Добавить объявление" -->
+<a id="open-add-listing-button" href="#">Добавить объявление</a>
+
+<!-- Модальное окно -->
+<div id="add-listing-modal" class="modal">
+  <div class="modal-content property-menu">
+    <button class="close" onclick="closeAddListingModal()">×</button>
+    <div class="menu-title">Добавьте своё объявление</div>
+    <div class="menu-tabs">
+      <button class="menu-tab" onclick="showAddForm('sale')" id="add-sale">Продажа</button>
+      <button class="menu-tab" onclick="showAddForm('rent')" id="add-rent">Аренда</button>
+    </div>
+    <form id="sale-form" class="add-form" style="display: none;">
+      <label>Название объекта:</label>
+      <input type="text" placeholder="Введите название">
+      <label>Цена:</label>
+      <input type="text" placeholder="Введите цену">
+      <label>Описание:</label>
+      <textarea placeholder="Введите описание"></textarea>
+      <button type="submit" class="search-button">Добавить</button>
+    </form>
+    <form id="rent-form" class="add-form" style="display: none;">
+      <label>Название объекта:</label>
+      <input type="text" placeholder="Введите название">
+      <label>Цена аренды:</label>
+      <input type="text" placeholder="Введите цену">
+      <label>Описание:</label>
+      <textarea placeholder="Введите описание"></textarea>
+      <button type="submit" class="search-button">Добавить</button>
+    </form>
+  </div>
+</div>
+
+<!-- Кнопка "Добавить объявление" -->
+<a id="open-auth-button" href="#">Вход\Регистрация</a>
+
+<!-- Модальное окно авторизации -->
+<div id="auth-modal" class="auth-modal">
+  <div class="auth-modal-content">
+    <div class="auth-tabs">
+      <button class="auth-tab-button active" data-tab="login">Вход</button>
+      <button class="auth-tab-button" data-tab="register">Регистрация</button>
+    </div>
+    <div class="auth-tab-content" id="login" style="display: block;">
+      <form>
+        <input type="text" placeholder="Имя пользователя" required>
+        <input type="password" placeholder="Пароль" required>
+        <label>
+          <input type="checkbox"> Запомнить меня
+        </label>
+        <button class="auth-button" type="submit">Вход</button>
+      </form>
+    </div>
+    <div class="auth-tab-content" id="register">
+      <form>
+        <input type="email" placeholder="Email" required>
+        <input type="text" placeholder="Имя пользователя" required>
+        <input type="password" placeholder="Пароль" required>
+        <button class="auth-button" type="submit">Регистрация</button>
+      </form>
+    </div>
+  </div>
+</div>
+  </header>
+
+
+
+  
+
+  <!-- Horizontal Banner Section -->
+  <section id="home" class="horizontal-banner-section">
+    <div class="swiper-container">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <img src="1666489481_34-colodu-club-p-chetirekhetazhnii-dom-dizain-krasivo-35.jpg" alt="Banner 1">
+          <div class="banner-text">Продажа квартир в новостройке</div>
+        </div>
+        <div class="swiper-slide">
+          <img src="755111863757541.jpg" alt="Banner 2">
+          <div class="banner-text">Строительство ЖК "Звезда Экватора"</div>
+        </div>
+        <div class="swiper-slide">
+          <img src="e7c800ca32a56a8f31be821b99bf78dd8ca14141.jpeg" alt="Banner 3">
+          <div class="banner-text">Проект будущего ЖК "Айсберг"</div>
+        </div>
+      </div>
+      <!-- Добавляем стрелки -->
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+    </div>
+  </section>
+
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <script>
+    const swiper = new Swiper('.swiper-container', {
+      direction: 'horizontal',
+      loop: true,
+      autoplay: {
+        delay: 3000,
+        disableOnInteraction: false,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      slidesPerView: 1,
+      spaceBetween: 0,
+    });
+  </script>
+
+
+
+<section id="search" class="property-search-section">
+  <div class="property-menu">
+    <div class="menu-tabs">
+      <h2 class="menu-title">Выбери свою недвижимость</h2>
+    </div>
+    <div class="search-options">
+      <div class="search-row">
+        <label>Вид недвижимости</label>
+        <button class="option-button">Вторичная</button>
+        <button class="option-button">Новостройка</button>
+      </div>
+      <div class="search-row">
+        <label>Тип недвижимости</label>
+        <select>
+          <option>Выбрать</option>
+          <option>Квартира</option>
+          <option>Дом</option>
+          <option>Офис</option>
+        </select>
+      </div>
+      <div class="search-row">
+        <label>Комнатность</label>
+        <button class="option-button">Студия</button>
+        <button class="option-button">1</button>
+        <button class="option-button">2</button>
+        <button class="option-button">3</button>
+        <button class="option-button">4+</button>
+      </div>
+      <div class="search-row">
+        <label>Стоимость</label>
+        <input type="text" placeholder="от...">
+        <input type="text" placeholder="до...">
+      </div>
+      <div class="search-row">
+        <label>Площадь</label>
+        <input type="text" placeholder="от...">
+        <input type="text" placeholder="до...">
+      </div>
+      <div class="search-row">
+        <label>Город, адрес, район, улица, ЖК</label>
+        <input type="text" placeholder="Введите адрес">
+      </div>
+      <button class="search-button">Показать результаты поиска</button>
+    </div>
+  </div>
+</section>
+<script src="script.js"></script>
+
+<section class="best-offers-section">
+  <h2 class="best-offers-title">Лучшие предложения</h2>
+</section>
+
+<section id="best" class="listings-section">
+  <div class="listings-container">
+    <!-- Карточка 1 -->
+    <div class="listing-card" onclick="openModal(1)">
+      <div class="image-placeholder">
+        <img src="Квартира1.jpg" alt="Квартира в центре">
+      </div>
+      <div class="listing-info">
+        <h3>Квартира в центре</h3>
+        <p>Цена: 8,500,000 руб.</p>
+        <p>Описание: Просторная квартира с видом на парк.</p>
+      </div>
+    </div>
+
+    <!-- Модальное окно для карточки 1 -->
+    <div class="modal" id="modal-1">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal(1)">&times;</span>
+        <div class="swiper-container">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide"><img src="Квартира1.jpg" alt="Квартира в центре"></div>
+            <div class="swiper-slide"><img src="кухня кв1.jpg" alt="Гостиная"></div>
+            <div class="swiper-slide"><img src="Спальня кв1.jpg" alt="Кухня"></div>
+            <div class="swiper-slide"><img src="Ванная кв1.jpg" alt="Ванная"></div>
+          </div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+        </div>
+        <div class="description">
+          <h3>Квартира в центре</h3>
+          <p>Цена: 8,500,000 руб.</p>
+          <p>Просторная квартира с видом на парк, 3 комнаты, большая кухня.</p>
+        </div>
+        <div class="modal-actions">
+          <button class="contact-seller" onmouseover="showSellerInfo(this)" onmouseout="hideSellerInfo()">Связаться с продавцом</button>
+          <div class="seller-info">
+            <p>Имя: Иван Иванович</p>
+            <p>Телефон: +7 900 123 45 67</p>
+            <p>Email: ivan@example.com</p>
+          </div>
+          <button class="add-to-favorites" onclick="addToFavorites(1)">Добавить в избранное</button>
+        </div>
+        
+      </div>
+    </div>
+
+    
+    <!-- Карточка 2 -->
+    <div class="listing-card" onclick="openModal(2)">
+      <div class="image-placeholder">
+        <img src="офис.png" alt="Современный офис">
+      </div>
+      <div class="listing-info">
+        <h3>Современный офис</h3>
+        <p>Цена: 5,200,000 руб.</p>
+        <p>Описание: Полностью оборудованный офис в деловом центре.</p>
+      </div>
+    </div>
+
+    <!-- Модальное окно для карточки 2 -->
+    <div class="modal" id="modal-2">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal(2)">&times;</span>
+        <div class="swiper-container">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide"><img src="офис.png" alt="Современный офис"></div>
+            <div class="swiper-slide"><img src="Переговорная.webp" alt="Переговорная"></div>
+            <div class="swiper-slide"><img src="лаунзона.jpg" alt="Лаунж зона"></div>
+          </div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+        </div>
+        <div class="description">
+          <h3>Современный офис</h3>
+          <p>Цена: 5,200,000 руб.</p>
+          <p>Полностью оборудованный офис в деловом центре.</p>
+        </div>
+        <div class="modal-actions">
+          <button class="contact-seller" onmouseover="showSellerInfo(this)" onmouseout="hideSellerInfo()">Связаться с продавцом</button>
+          <div class="seller-info">
+            <p>Имя: Иван Иванович</p>
+            <p>Телефон: +7 900 123 45 67</p>
+            <p>Email: ivan@example.com</p>
+          </div>
+          <button class="add-to-favorites" onclick="addToFavorites(2)">Добавить в избранное</button>
+        </div>
+        
+      </div>
+    </div>
+
+    <!-- Повторите для остальных карточек -->
+
+    <!-- Пример для карточки 3 -->
+    <div class="listing-card" onclick="openModal(3)">
+      <div class="image-placeholder">
+        <img src="Домик уют.jpg" alt="Дом на окраине">
+      </div>
+      <div class="listing-info">
+        <h3>Дом на окраине</h3>
+        <p>Цена: 12,000,000 руб.</p>
+        <p>Описание: Уютный дом с большим садом и гаражом.</p>
+      </div>
+    </div>
+
+    <!-- Модальное окно для карточки 3 -->
+    <div class="modal" id="modal-3">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal(3)">&times;</span>
+        <div class="swiper-container">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide"><img src="Домик уют.jpg" alt="Дом"></div>
+            <div class="swiper-slide"><img src="Сад домика.jpg" alt="Сад"></div>
+            <div class="swiper-slide"><img src="Гараж.jpg" alt="Гараж"></div>
+          </div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+        </div>
+        <div class="description">
+          <h3>Дом на окраине</h3>
+          <p>Цена: 12,000,000 руб.</p>
+          <p>Уютный дом с большим садом и гаражом.</p>
+        </div>
+        <div class="modal-actions">
+          <button class="contact-seller" onmouseover="showSellerInfo(this)" onmouseout="hideSellerInfo()">Связаться с продавцом</button>
+          <div class="seller-info">
+            <p>Имя: Иван Иванович</p>
+            <p>Телефон: +7 900 123 45 67</p>
+            <p>Email: ivan@example.com</p>
+          </div>
+          <button class="add-to-favorites" onclick="addToFavorites(3)">Добавить в избранное</button>
+        </div>
+        
+      </div>
+    </div>
+    <!-- Карточка 4 -->
+<div class="listing-card" onclick="openModal(4)">
+  <div class="image-placeholder">
+    <img src="квартира2.jpg" alt="Квартира в новостройке">
+  </div>
+  <div class="listing-info">
+    <h3>Квартира в новостройке</h3>
+    <p>Цена: 6,800,000 руб.</p>
+    <p>Описание: Уютная квартира в современном жилом комплексе.</p>
+  </div>
+</div>
+
+<!-- Модальное окно для карточки 4 -->
+<div class="modal" id="modal-4">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal(4)">&times;</span>
+    <div class="swiper-container">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide"><img src="квартира2.jpg" alt="Квартира"></div>
+        <div class="swiper-slide"><img src="Спальня кв2.webp" alt="Спальня"></div>
+        <div class="swiper-slide"><img src="Ванная кв2.webp" alt="Ванная комната"></div>
+      </div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+    </div>
+    <div class="description">
+      <h3>Квартира в новостройке</h3>
+      <p>Цена: 6,800,000 руб.</p>
+      <p>Современная квартира с удобной планировкой и качественным ремонтом.</p>
+    </div>
+          <div class="modal-actions">
+      <button class="contact-seller" onmouseover="showSellerInfo(this)" onmouseout="hideSellerInfo()">Связаться с продавцом</button>
+      <div class="seller-info">
+        <p>Имя: Иван Иванович</p>
+        <p>Телефон: +7 900 123 45 67</p>
+        <p>Email: ivan@example.com</p>
+      </div>
+      <button class="add-to-favorites" onclick="addToFavorites(4)">Добавить в избранное</button>
+    </div>
+    
+  </div>
+</div>
+
+<!-- Карточка 5 -->
+<div class="listing-card" onclick="openModal(5)">
+  <div class="image-placeholder">
+    <img src="офис2.png" alt="Офис в центре города">
+  </div>
+  <div class="listing-info">
+    <h3>Офис в центре города</h3>
+    <p>Цена: 7,500,000 руб.</p>
+    <p>Описание: Отличное место для ведения бизнеса.</p>
+  </div>
+</div>
+
+<!-- Модальное окно для карточки 5 -->
+<div class="modal" id="modal-5">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal(5)">&times;</span>
+    <div class="swiper-container">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide"><img src="офис2.png" alt="Офис"></div>
+        <div class="swiper-slide"><img src="Переговорная офис2.jpg" alt="Рабочее пространство"></div>
+        <div class="swiper-slide"><img src="Ресепшен.jpg" alt="Ресепшен"></div>
+        <div class="swiper-slide"><img src="чилзона.jpg" alt="Место отдыха"></div>
+      </div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+    </div>
+    <div class="description">
+      <h3>Офис в центре города</h3>
+      <p>Цена: 7,500,000 руб.</p>
+      <p>Просторный офис с хорошей транспортной доступностью.</p>
+    </div>
+    <div class="modal-actions">
+      <button class="contact-seller" onmouseover="showSellerInfo(this)" onmouseout="hideSellerInfo()">Связаться с продавцом</button>
+      <div class="seller-info">
+        <p>Имя: Иван Иванович</p>
+        <p>Телефон: +7 900 123 45 67</p>
+        <p>Email: ivan@example.com</p>
+      </div>
+      <button class="add-to-favorites" onclick="addToFavorites(5)">Добавить в избранное</button>
+    </div>
+    
+  </div>
+</div>
+
+<!-- Карточка 6 -->
+<div class="listing-card" onclick="openModal(6)">
+  <div class="image-placeholder">
+    <img src="Дом2 с басиком.jpg" alt="Дом в элитном районе">
+  </div>
+  <div class="listing-info">
+    <h3>Дом в элитном районе</h3>
+    <p>Цена: 25,000,000 руб.</p>
+    <p>Описание: Просторный дом с бассейном и панорамным видом.</p>
+  </div>
+</div>
+
+<!-- Модальное окно для карточки 6 -->
+<div class="modal" id="modal-6">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal(6)">&times;</span>
+    <div class="swiper-container">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide"><img src="Дом2 с басиком.jpg" alt="Дом"></div>
+        <div class="swiper-slide"><img src="спальня дома2.jpg" alt="Спалка"></div>
+        <div class="swiper-slide"><img src="ваная дома2.webp" alt="душевая"></div>
+      </div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+    </div>
+    <div class="description">
+      <h3>Дом в элитном районе</h3>
+      <p>Цена: 25,000,000 руб.</p>
+      <p>Элитный дом с бассейном, террасой и живописным видом.</p>
+    </div>
+    <div class="modal-actions">
+      <button class="contact-seller" onmouseover="showSellerInfo(this)" onmouseout="hideSellerInfo()">Связаться с продавцом</button>
+      <div class="seller-info">
+        <p>Имя: Иван Иванович</p>
+        <p>Телефон: +7 900 123 45 67</p>
+        <p>Email: ivan@example.com</p>
+      </div>
+      <button class="add-to-favorites" onclick="addToFavorites(6)">Добавить в избранное</button>
+    </div>
+    
+  </div>
+</div>
+
+<!-- Карточка 7 -->
+<div class="listing-card" onclick="openModal(7)">
+  <div class="image-placeholder">
+    <img src="квартира лофт.jpg" alt="Квартира с ремонтом">
+  </div>
+  <div class="listing-info">
+    <h3>Квартира с ремонтом в стиле лофт</h3>
+    <p>Цена: 9,300,000 руб.</p>
+    <p>Описание: Полностью готова к проживанию, отличный район.</p>
+  </div>
+</div>
+
+<!-- Модальное окно для карточки 7 -->
+<div class="modal" id="modal-7">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal(7)">&times;</span>
+    <div class="swiper-container">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide"><img src="квартира лофт.jpg" alt="Квартира"></div>
+        <div class="swiper-slide"><img src="Спальня лофт.jpg" alt="Жилая зона"></div>
+        <div class="swiper-slide"><img src="ванная лофт.jpg" alt="душевая в стиле лофт"></div>
+      </div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+    </div>
+    <div class="description">
+      <h3>Квартира с ремонтом в стиле лофт</h3>
+      <p>Цена: 9,300,000 руб.</p>
+      <p>Дизайнерская отделка, высокие потолки, большая площадь.</p>
+    </div>
+    <div class="modal-actions">
+      <button class="contact-seller" onmouseover="showSellerInfo(this)" onmouseout="hideSellerInfo()">Связаться с продавцом</button>
+      <div class="seller-info">
+        <p>Имя: Иван Иванович</p>
+        <p>Телефон: +7 900 123 45 67</p>
+        <p>Email: ivan@example.com</p>
+      </div>
+      <button class="add-to-favorites" onclick="addToFavorites(7)">Добавить в избранное</button>
+    </div>
+    
+  </div>
+</div>
+    <!-- Карточка 8 -->
+<div class="listing-card" onclick="openModal(8)">
+  <div class="image-placeholder">
+    <img src="загородный участок.jpg" alt="Дом в пригороде">
+  </div>
+  <div class="listing-info">
+    <h3>Дом в пригороде</h3>
+    <p>Цена: 15,800,000 руб.</p>
+    <p>Описание: Большой участок, рядом лес и река.</p>
+  </div>
+</div>
+
+<!-- Модальное окно для карточки 8 -->
+<div class="modal" id="modal-8">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal(8)">&times;</span>
+    <div class="swiper-container">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide"><img src="загородный участок.jpg" alt="Дом"></div>
+        <div class="swiper-slide"><img src="Сад за домом за рекой.jpg" alt="Сад"></div>
+        <div class="swiper-slide"><img src="Сауна у реки.jpg" alt="Сауна"></div>
+        <div class="swiper-slide"><img src="кухня с гостинной.jpg" alt="1 этаж"></div>
+        <div class="swiper-slide"><img src="мега ванная.jpg" alt="Ванная"></div>
+        <div class="swiper-slide"><img src="Спальня детская.webp" alt="Дети"></div>
+        <div class="swiper-slide"><img src="спальня дома у реки.webp" alt="Сон"></div>
+      </div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+    </div>
+    <div class="description">
+      <h3>Дом в пригороде</h3>
+      <p>Цена: 15,800,000 руб.</p>
+      <p>Уютный дом с большим участком, рядом лес и река.</p>
+    </div>
+    <div class="modal-actions">
+      <button class="contact-seller" onmouseover="showSellerInfo(this)" onmouseout="hideSellerInfo()">Связаться с продавцом</button>
+      <div class="seller-info">
+        <p>Имя: Иван Иванович</p>
+        <p>Телефон: +7 900 123 45 67</p>
+        <p>Email: ivan@example.com</p>
+      </div>
+      <button class="add-to-favorites" onclick="addToFavorites(8)">Добавить в избранное</button>
+    </div>
+    
+  </div>
+</div>
+
+<!-- Карточка 9 -->
+<div class="listing-card" onclick="openModal(9)">
+  <div class="image-placeholder">
+    <img src="курорт.webp" alt="Квартира с видом на море">
+  </div>
+  <div class="listing-info">
+    <h3>Квартира с видом на море</h3>
+    <p>Цена: 18,000,000 руб.</p>
+    <p>Описание: Роскошная квартира в курортной зоне.</p>
+  </div>
+</div>
+
+<!-- Модальное окно для карточки 9 -->
+<div class="modal" id="modal-9">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal(9)">&times;</span>
+    <div class="swiper-container">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide"><img src="курорт.webp" alt="Квартира"></div>
+        <div class="swiper-slide"><img src="Пляж.jpg" alt="Пляж"></div>
+        <div class="swiper-slide"><img src="Курорт ванная.webp" alt="Ванная курорта"></div>
+        <div class="swiper-slide"><img src="кухен крортен.webp" alt="кухен"></div>
+      </div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+    </div>
+    <div class="description">
+      <h3>Квартира с видом на море</h3>
+      <p>Цена: 18,000,000 руб.</p>
+      <p>Роскошная квартира в курортной зоне с потрясающим видом на море.</p>
+    </div>
+    <div class="modal-actions">
+      <button class="contact-seller" onmouseover="showSellerInfo(this)" onmouseout="hideSellerInfo()">Связаться с продавцом</button>
+      <div class="seller-info">
+        <p>Имя: Иван Иванович</p>
+        <p>Телефон: +7 900 123 45 67</p>
+        <p>Email: ivan@example.com</p>
+      </div>
+      <button class="add-to-favorites" onclick="addToFavorites(9)">Добавить в избранное</button>
+    </div>
+    
+  </div>
+</div>
+
+<!-- Карточка 10 -->
+<div class="listing-card" onclick="openModal(10)">
+  <div class="image-placeholder">
+    <img src="Совр офисик.webp" alt="Современный офис">
+  </div>
+  <div class="listing-info">
+    <h3>Современный офис</h3>
+    <p>Цена: 4,800,000 руб.</p>
+    <p>Описание: Отличный вариант для стартапа.</p>
+  </div>
+</div>
+
+<!-- Модальное окно для карточки 10 -->
+<div class="modal" id="modal-10">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal(10)">&times;</span>
+    <div class="swiper-container">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide"><img src="Совр офисик.webp" alt="Офис"></div>
+        <div class="swiper-slide"><img src="Столовка.webp" alt="Столовка"></div>
+        <div class="swiper-slide"><img src="переговорка.jpg" alt="Зона переговоров"></div>
+      </div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+    </div>
+    <div class="description">
+      <h3>Современный офис</h3>
+      <p>Цена: 4,800,000 руб.</p>
+      <p>Удобное расположение, современный дизайн, отлично подходит для стартапа.</p>
+    </div>
+    <div class="modal-actions">
+      <button class="contact-seller" onmouseover="showSellerInfo(this)" onmouseout="hideSellerInfo()">Связаться с продавцом</button>
+      <div class="seller-info">
+        <p>Имя: Иван Иванович</p>
+        <p>Телефон: +7 900 123 45 67</p>
+        <p>Email: ivan@example.com</p>
+      </div>
+      <button class="add-to-favorites" onclick="addToFavorites(10)">Добавить в избранное</button>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- Каталог недвижимости -->
+<section id="catalog" class="catalog-section">
+  <h2>Каталог недвижимости</h2>
+  <div class="slider-container2">
+        <!-- Карточки недвижимости -->
+        <div class="listing-card" onclick="openModal(1)">
+          <div class="image-placeholder">
+            <img src="Квартира1.jpg" alt="Квартира в центре">
+          </div>
+          <div class="listing-info">
+            <h3>Квартира в центре</h3>
+            <p>Цена: 8,500,000 руб.</p>
+            <p>Описание: Просторная квартира с видом на парк.</p>
+          </div>
+        </div>
+        <div class="listing-card" onclick="openModal(2)">
+          <div class="image-placeholder">
+            <img src="офис.png" alt="Современный офис">
+          </div>
+          <div class="listing-info">
+            <h3>Современный офис</h3>
+            <p>Цена: 5,200,000 руб.</p>
+            <p>Описание: Полностью оборудованный офис в деловом центре.</p>
+          </div>
+        </div>
+        <div class="listing-card" onclick="openModal(3)">
+          <div class="image-placeholder">
+            <img src="Домик уют.jpg" alt="Дом на окраине">
+          </div>
+          <div class="listing-info">
+            <h3>Дом на окраине</h3>
+            <p>Цена: 12,000,000 руб.</p>
+            <p>Описание: Уютный дом с большим садом и гаражом.</p>
+          </div>
+        </div>
+        <div class="listing-card" onclick="openModal(4)">
+          <div class="image-placeholder">
+            <img src="квартира2.jpg" alt="Квартира в новостройке">
+          </div>
+          <div class="listing-info">
+            <h3>Квартира в новостройке</h3>
+            <p>Цена: 6,800,000 руб.</p>
+            <p>Описание: Уютная квартира в современном жилом комплексе.</p>
+          </div>
+        </div>
+        <div class="listing-card" onclick="openModal(5)">
+          <div class="image-placeholder">
+            <img src="офис2.png" alt="Офис в центре города">
+          </div>
+          <div class="listing-info">
+            <h3>Офис в центре города</h3>
+            <p>Цена: 7,500,000 руб.</p>
+            <p>Описание: Отличное место для ведения бизнеса.</p>
+          </div>
+        </div>
+
+
+<!-- Карточка 6 -->
+
+<div class="listing-card" onclick="openModal(6)">
+  <div class="image-placeholder">
+    <img src="Дом2 с басиком.jpg" alt="Дом в элитном районе">
+  </div>
+  <div class="listing-info">
+    <h3>Дом в элитном районе</h3>
+    <p>Цена: 25,000,000 руб.</p>
+    <p>Описание: Просторный дом с бассейном и панорамным видом.</p>
+  </div>
+</div>
+
+<!-- Карточка 7 -->
+
+<div class="listing-card" onclick="openModal(7)">
+  <div class="image-placeholder">
+    <img src="квартира лофт.jpg" alt="Квартира с ремонтом">
+  </div>
+  <div class="listing-info">
+    <h3>Квартира с ремонтом в стиле лофт</h3>
+    <p>Цена: 9,300,000 руб.</p>
+    <p>Описание: Полностью готова к проживанию, отличный район.</p>
+  </div>
+</div>
+
+
+
+    <!-- Карточка 8 -->
+
+<div class="listing-card" onclick="openModal(8)">
+  <div class="image-placeholder">
+    <img src="загородный участок.jpg" alt="Дом в пригороде">
+  </div>
+  <div class="listing-info">
+    <h3>Дом в пригороде</h3>
+    <p>Цена: 15,800,000 руб.</p>
+    <p>Описание: Большой участок, рядом лес и река.</p>
+  </div>
+</div>
+
+
+
+
+<!-- Карточка 9 -->
+
+<div class="listing-card" onclick="openModal(9)">
+  <div class="image-placeholder">
+    <img src="курорт.webp" alt="Квартира с видом на море">
+  </div>
+  <div class="listing-info">
+    <h3>Квартира с видом на море</h3>
+    <p>Цена: 18,000,000 руб.</p>
+    <p>Описание: Роскошная квартира в курортной зоне.</p>
+  </div>
+</div>
+
+
+
+<!-- Карточка 10 -->
+
+<div class="listing-card" onclick="openModal(10)">
+  <div class="image-placeholder">
+    <img src="Совр офисик.webp" alt="Современный офис">
+  </div>
+  <div class="listing-info">
+    <h3>Современный офис</h3>
+    <p>Цена: 4,800,000 руб.</p>
+    <p>Описание: Отличный вариант для стартапа.</p>
+  </div>
+</div>
+
+<div class="listing-card" onclick="openModal(11)">
+  <div class="image-placeholder">
+    <img src="photo_5_2024-12-11_03-47-11.jpg" alt="Квартира в центре">
+  </div>
+  <div class="listing-info">
+    <h3>Дом в катеджном посёлке</h3>
+    <p>Цена: 12,500,000 руб.</p>
+    <p>Описание: Просторный загородный дом.</p>
+  </div>
+</div>
+
+<!-- Модальное окно для карточки 11 -->
+<div class="modal" id="modal-11">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal(11)">&times;</span>
+    <div class="swiper-container">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide"><img src="photo_5_2024-12-11_03-47-11.jpg" alt="Квартира в центре"></div>
+        <div class="swiper-slide"><img src="photo_7_2024-12-11_03-47-11.jpg" alt="Гостиная"></div>
+        <div class="swiper-slide"><img src="photo_4_2024-12-11_03-47-11.jpg" alt="Кухня"></div>
+        <div class="swiper-slide"><img src="photo_1_2024-12-11_03-47-11.jpg" alt="Ванная"></div>
+        <div class="swiper-slide"><img src="photo_2_2024-12-11_03-47-11.jpg" alt="Ванная"></div>
+        <div class="swiper-slide"><img src="photo_3_2024-12-11_03-47-11.jpg" alt="Ванная"></div>
+        <div class="swiper-slide"><img src="photo_6_2024-12-11_03-47-11.jpg" alt="Ванная"></div>
+        <div class="swiper-slide"><img src="photo_8_2024-12-11_03-47-11.jpg" alt="Ванная"></div>
+      </div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+    </div>
+    <div class="description">
+      <h3>Дом в катеджном посёлке</h3>
+      <p>Цена: 12,500,000 руб.</p>
+      <p>Просторный загородный дом – Уютный дом с обширной террасой, идеально подходящий для комфортного проживания вдали от городской суеты.</p>
+    </div>
+    <div class="modal-actions">
+      <button class="contact-seller" onmouseover="showSellerInfo(this)" onmouseout="hideSellerInfo()">Связаться с продавцом</button>
+      <div class="seller-info">
+        <p>Имя: Иван Иванович</p>
+        <p>Телефон: +7 900 123 45 67</p>
+        <p>Email: ivan@example.com</p>
+      </div>
+      <button class="add-to-favorites" onclick="addToFavorites(141)">Добавить в избранное</button>
+    </div>
+    
+  </div>
+</div>
+
+
+<!-- Карточка 12 -->
+<div class="listing-card" onclick="openModal(12)">
+  <div class="image-placeholder">
+    <img src="photo_5_2024-12-11_03-57-25.jpg" alt="Современный офис">
+  </div>
+  <div class="listing-info">
+    <h3>трехкомнатная квартира</h3>
+    <p>Цена: 5,200,000 руб.</p>
+    <p>Описание: Просторная трехкомнатная квартира.</p>
+  </div>
+</div>
+
+<!-- Модальное окно для карточки 12 -->
+<div class="modal" id="modal-12">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal(12)">&times;</span>
+    <div class="swiper-container">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide"><img src="photo_1_2024-12-11_03-57-25.jpg" alt="Современный офис"></div>
+        <div class="swiper-slide"><img src="photo_2_2024-12-11_03-57-25.jpg" alt="Переговорная"></div>
+        <div class="swiper-slide"><img src="photo_3_2024-12-11_03-57-25.jpg" alt="Лаунж зона"></div>
+        <div class="swiper-slide"><img src="photo_4_2024-12-11_03-57-25.jpg" alt="Лаунж зона"></div>
+        <div class="swiper-slide"><img src="photo_5_2024-12-11_03-57-25.jpg" alt="Лаунж зона"></div>
+        <div class="swiper-slide"><img src="photo_6_2024-12-11_03-57-25.jpg" alt="Лаунж зона"></div>
+      </div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+    </div>
+    <div class="description">
+      <h3>трехкомнатная квартира</h3>
+      <p>Цена: 7,200,000 руб.</p>
+      <p>Просторная трехкомнатная – Уютная и функциональная квартира, идеально подходящая для семьи. Прекрасное расположение рядом с парком позволяет наслаждаться тишиной и зеленью, создавая отличные условия для семейного проживания и отдыха.</p>
+    </div>
+    <div class="modal-actions">
+      <button class="contact-seller" onmouseover="showSellerInfo(this)" onmouseout="hideSellerInfo()">Связаться с продавцом</button>
+      <div class="seller-info">
+        <p>Имя: Иван Иванович</p>
+        <p>Телефон: +7 900 123 45 67</p>
+        <p>Email: ivan@example.com</p>
+      </div>
+      <button class="add-to-favorites" onclick="addToFavorites(12)">Добавить в избранное</button>
+    </div>
+    
+  </div>
+</div>
+
+
+
+<!-- Пример для карточки 13 -->
+<div class="listing-card" onclick="openModal(13)">
+  <div class="image-placeholder">
+    <img src="photo_1_2024-12-11_04-11-35.jpg" alt="Дом на окраине">
+  </div>
+  <div class="listing-info">
+    <h3>Вилла на побережье</h3>
+    <p>Цена: 12,000,000 руб.</p>
+    <p>Описание: Вилла на побережье – Роскошное жилье с бассейном и прямым доступом к пляжу, предлагающее максимальный комфорт и уединение.</p>
+  </div>
+</div>
+
+<!-- Модальное окно для карточки 13 -->
+<div class="modal" id="modal-13">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal(13)">&times;</span>
+    <div class="swiper-container">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide"><img src="photo_1_2024-12-11_04-11-35 .jpg" alt="Дом"></div>
+        <div class="swiper-slide"><img src="photo_2_2024-12-11_04-11-35.jpg" alt="Сад"></div>
+        <div class="swiper-slide"><img src="photo_3_2024-12-11_04-11-35.jpg" alt="Гараж"></div>
+        <div class="swiper-slide"><img src="photo_4_2024-12-11_04-11-35.jpg" alt="Гараж"></div>
+      </div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+    </div>
+    <div class="description">
+      <h3>Вилла на побережье</h3>
+      <p>Цена: 12,000,000 руб.</p>
+      <p>Вилла на побережье – Роскошное жилье с бассейном и прямым доступом к пляжу, предлагающее максимальный комфорт и уединение.</p>
+    </div>
+    <div class="modal-actions">
+      <button class="contact-seller" onmouseover="showSellerInfo(this)" onmouseout="hideSellerInfo()">Связаться с продавцом</button>
+      <div class="seller-info">
+        <p>Имя: Иван Иванович</p>
+        <p>Телефон: +7 900 123 45 67</p>
+        <p>Email: ivan@example.com</p>
+      </div>
+      <button class="add-to-favorites" onclick="addToFavorites(13)">Добавить в избранное</button>
+    </div>
+    
+  </div>
+</div>
+<!-- Карточка 14 -->
+<div class="listing-card" onclick="openModal(14)">
+<div class="image-placeholder">
+<img src="photo_1_2024-12-11_04-22-48.jpg" alt="Квартира в новостройке">
+</div>
+<div class="listing-info">
+<h3>Пентхаус</h3>
+<p>Цена: 6,800,000 руб.</p>
+<p>Описание: Пентхаус с террасой</p>
+</div>
+</div>
+
+<!-- Модальное окно для карточки 14 -->
+<div class="modal" id="modal-14">
+<div class="modal-content">
+<span class="close" onclick="closeModal(14)">&times;</span>
+<div class="swiper-container">
+  <div class="swiper-wrapper">
+    <div class="swiper-slide"><img src="photo_1_2024-12-11_04-22-48.jpg" alt="Квартира"></div>
+    <div class="swiper-slide"><img src="photo_2_2024-12-11_04-22-48.jpg" alt="Квартира"></div>
+    <div class="swiper-slide"><img src="photo_3_2024-12-11_04-22-48.jpg" alt="Квартира"></div>
+    <div class="swiper-slide"><img src="photo_4_2024-12-11_04-22-48.jpg" alt="Квартира"></div>
+    <div class="swiper-slide"><img src="photo_5_2024-12-11_04-22-48.jpg" alt="Квартира"></div>
+    <div class="swiper-slide"><img src="photo_6_2024-12-11_04-22-48.jpg" alt="Квартира"></div>
+    <div class="swiper-slide"><img src="photo_7_2024-12-11_04-22-48.jpg" alt="Квартира"></div>
+    <div class="swiper-slide"><img src="photo_8_2024-12-11_04-22-48.jpg" alt="Квартира"></div>
+  </div>
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-button-next"></div>
+</div>
+<div class="description">
+  <h3>Пентхаус с террасой</h3>
+  <p>Цена: 6,800,000 руб.</p>
+  <p>Пентхаус с террасой – Элитная квартира, расположенная на верхнем этаже с панорамным видом на город. Открытая терраса с зонами отдыха и для барбекю превращает каждый день в настоящий праздник, обеспечивая высокий уровень комфорта и уединения.</p>
+</div>
+      <div class="modal-actions">
+  <button class="contact-seller" onmouseover="showSellerInfo(this)" onmouseout="hideSellerInfo()">Связаться с продавцом</button>
+  <div class="seller-info">
+    <p>Имя: Иван Иванович</p>
+    <p>Телефон: +7 900 123 45 67</p>
+    <p>Email: ivan@example.com</p>
+  </div>
+  <button class="add-to-favorites" onclick="addToFavorites(14)">Добавить в избранное</button>
+</div>
+
+</div>
+</div>
+
+<!-- Карточка 15 -->
+<div class="listing-card" onclick="openModal(15)">
+<div class="image-placeholder">
+<img src="photo_1_2024-12-11_04-28-29.jpg" alt="Офис в центре города">
+</div>
+<div class="listing-info">
+<h3>Коворкинг в центре города</h3>
+<p>Цена: 9,500,000 руб.</p>
+<p>Описание: Отличное место для ведения бизнеса.</p>
+</div>
+</div>
+
+<!-- Модальное окно для карточки 15 -->
+<div class="modal" id="modal-15">
+<div class="modal-content">
+<span class="close" onclick="closeModal(15)">&times;</span>
+<div class="swiper-container">
+  <div class="swiper-wrapper">
+    <div class="swiper-slide"><img src="photo_1_2024-12-11_04-28-29.jpg" alt="Офис"></div>
+    <div class="swiper-slide"><img src="photo_2_2024-12-11_04-28-29.jpg" alt="Офис"></div>
+    <div class="swiper-slide"><img src="photo_3_2024-12-11_04-28-29.jpg" alt="Офис"></div>
+  </div>
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-button-next"></div>
+</div>
+<div class="description">
+  <h3>Офис в центре города</h3>
+  <p>Цена: 9,500,000 руб.</p>
+  <p>Коворкинг – Удобный офисный пространство с современными рабочими местами, мебелью и всеми необходимыми удобствами для эффективной работы в команде. Оборудованные зоны для встреч и переговоров, высокоскоростной интернет и комфортная атмосфера сделают рабочий процесс продуктивным и комфортным.</p>
+</div>
+<div class="modal-actions">
+  <button class="contact-seller" onmouseover="showSellerInfo(this)" onmouseout="hideSellerInfo()">Связаться с продавцом</button>
+  <div class="seller-info">
+    <p>Имя: Иван Иванович</p>
+    <p>Телефон: +7 900 123 45 67</p>
+    <p>Email: ivan@example.com</p>
+  </div>
+  <button class="add-to-favorites" onclick="addToFavorites(15)">Добавить в избранное</button>
+</div>
+
+</div>
+</div>
+
+<!-- Карточка 16 -->
+<div class="listing-card" onclick="openModal(16)">
+<div class="image-placeholder">
+<img src="photo_6_2024-12-11_04-29-55.jpg" alt="Дом в элитном районе">
+</div>
+<div class="listing-info">
+<h3>Дом в элитном районе</h3>
+<p>Цена: 25,000,000 руб.</p>
+<p>Описание: Традиционный особняк.</p>
+</div>
+</div>
+
+<!-- Модальное окно для карточки 16 -->
+<div class="modal" id="modal-16">
+<div class="modal-content">
+<span class="close" onclick="closeModal(16)">&times;</span>
+<div class="swiper-container">
+  <div class="swiper-wrapper">
+    <div class="swiper-slide"><img src="photo_6_2024-12-11_04-29-55.jpg" alt="Дом"></div>
+    <div class="swiper-slide"><img src="photo_5_2024-12-11_04-29-55.jpg" alt="Дом"></div>
+    <div class="swiper-slide"><img src="photo_2_2024-12-11_04-29-55.jpg" alt="Дом"></div>
+    <div class="swiper-slide"><img src="photo_4_2024-12-11_04-29-55.jpg" alt="Дом"></div>
+    <div class="swiper-slide"><img src="photo_1_2024-12-11_04-29-55.jpg" alt="Дом"></div>
+    <div class="swiper-slide"><img src="photo_3_2024-12-11_04-29-55.jpg" alt="Дом"></div>
+  </div>
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-button-next"></div>
+</div>
+<div class="description">
+  <h3>Дом в элитном районе</h3>
+  <p>Цена: 25,000,000 руб.</p>
+  <p>Традиционный особняк – Классический дом с высокими потолками, элегантным дизайном и камином, создающий атмосферу тепла и уюта.</p>
+</div>
+<div class="modal-actions">
+  <button class="contact-seller" onmouseover="showSellerInfo(this)" onmouseout="hideSellerInfo()">Связаться с продавцом</button>
+  <div class="seller-info">
+    <p>Имя: Иван Иванович</p>
+    <p>Телефон: +7 900 123 45 67</p>
+    <p>Email: ivan@example.com</p>
+  </div>
+  <button class="add-to-favorites" onclick="addToFavorites(16)">Добавить в избранное</button>
+</div>
+
+</div>
+</div>
+
+<!-- Карточка 17 -->
+<div class="listing-card" onclick="openModal(17)">
+<div class="image-placeholder">
+<img src="photo_2_2024-12-11_04-32-46.jpg" alt="Квартира с ремонтом">
+</div>
+<div class="listing-info">
+<h3>Просторная трехкомнатная</h3>
+<p>Цена: 9,300,000 руб.</p>
+<p>Описание: Полностью готова к проживанию, отличный район.</p>
+</div>
+</div>
+
+<!-- Модальное окно для карточки 17 -->
+<div class="modal" id="modal-17">
+<div class="modal-content">
+<span class="close" onclick="closeModal(17)">&times;</span>
+<div class="swiper-container">
+  <div class="swiper-wrapper">
+    <div class="swiper-slide"><img src="photo_2_2024-12-11_04-32-46.jpg" alt="Квартира"></div>
+    <div class="swiper-slide"><img src="photo_3_2024-12-11_04-32-46.jpg" alt="Квартира"></div>
+    <div class="swiper-slide"><img src="photo_1_2024-12-11_04-32-46.jpg" alt="Квартира"></div>
+    <div class="swiper-slide"><img src="photo_4_2024-12-11_04-32-46.jpg" alt="Квартира"></div>
+    <div class="swiper-slide"><img src="photo_5_2024-12-11_04-32-46.jpg" alt="Квартира"></div>
+    <div class="swiper-slide"><img src="photo_6_2024-12-11_04-32-46.jpg" alt="Квартира"></div>
+    <div class="swiper-slide"><img src="photo_7_2024-12-11_04-32-46.jpg" alt="Квартира"></div>
+  </div>
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-button-next"></div>
+</div>
+<div class="description">
+  <h3>Просторная трехкомнатная квартира с ремонтом</h3>
+  <p>Цена: 9,300,000 руб.</p>
+  <p>Просторная трехкомнатная – Уютная и функциональная квартира, идеально подходящая для семьи. Прекрасное расположение рядом с парком позволяет наслаждаться тишиной и зеленью, создавая отличные условия для семейного проживания и отдыха.</p>
+</div>
+<div class="modal-actions">
+  <button class="contact-seller" onmouseover="showSellerInfo(this)" onmouseout="hideSellerInfo()">Связаться с продавцом</button>
+  <div class="seller-info">
+    <p>Имя: Иван Иванович</p>
+    <p>Телефон: +7 900 123 45 67</p>
+    <p>Email: ivan@example.com</p>
+  </div>
+  <button class="add-to-favorites" onclick="addToFavorites(17)">Добавить в избранное</button>
+</div>
+
+</div>
+</div>
+<!-- Карточка 18 -->
+<div class="listing-card" onclick="openModal(18)">
+<div class="image-placeholder">
+<img src="photo_11_2024-12-11_04-36-48.jpg" alt="Дом в пригороде">
+</div>
+<div class="listing-info">
+<h3>Просторный загородный дом</h3>
+<p>Цена: 15,800,000 руб.</p>
+<p>Описание: Просторный загородный дом.</p>
+</div>
+</div>
+
+<!-- Модальное окно для карточки 18 -->
+<div class="modal" id="modal-18">
+<div class="modal-content">
+<span class="close" onclick="closeModal(18)">&times;</span>
+<div class="swiper-container">
+  <div class="swiper-wrapper">
+    <div class="swiper-slide"><img src="photo_11_2024-12-11_04-36-48.jpg" alt="Дом"></div>
+    <div class="swiper-slide"><img src="photo_5_2024-12-11_04-36-48.jpg" alt="Дом"></div>
+    <div class="swiper-slide"><img src="photo_1_2024-12-11_04-36-48.jpg" alt="Дом"></div>
+    <div class="swiper-slide"><img src="photo_2_2024-12-11_04-36-48.jpg" alt="Дом"></div>
+    <div class="swiper-slide"><img src="photo_3_2024-12-11_04-36-48.jpg" alt="Дом"></div>
+    <div class="swiper-slide"><img src="photo_4_2024-12-11_04-36-48.jpg" alt="Дом"></div>
+    <div class="swiper-slide"><img src="photo_6_2024-12-11_04-36-48.jpg" alt="Дом"></div>
+    <div class="swiper-slide"><img src="photo_7_2024-12-11_04-36-48.jpg" alt="Дом"></div>
+    <div class="swiper-slide"><img src="photo_8_2024-12-11_04-36-48.jpg" alt="Дом"></div>
+    <div class="swiper-slide"><img src="photo_9_2024-12-11_04-36-48.jpg" alt="Дом"></div>
+    <div class="swiper-slide"><img src="photo_10_2024-12-11_04-36-48.jpg" alt="Дом"></div>
+  </div>
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-button-next"></div>
+</div>
+<div class="description">
+  <h3>Просторный загородный дом</h3>
+  <p>Цена: 15,800,000 руб.</p>
+  <p>Просторный загородный дом – Уютный дом с обширной террасой, идеально подходящий для комфортного проживания вдали от городской суеты.</p>
+</div>
+<div class="modal-actions">
+  <button class="contact-seller" onmouseover="showSellerInfo(this)" onmouseout="hideSellerInfo()">Связаться с продавцом</button>
+  <div class="seller-info">
+    <p>Имя: Иван Иванович</p>
+    <p>Телефон: +7 900 123 45 67</p>
+    <p>Email: ivan@example.com</p>
+  </div>
+  <button class="add-to-favorites" onclick="addToFavorites(18)">Добавить в избранное</button>
+</div>
+
+</div>
+</div>
+
+<!-- Карточка 19 -->
+<div class="listing-card" onclick="openModal(19)">
+<div class="image-placeholder">
+<img src="photo_5_2024-12-11_04-41-57.jpg" alt="Квартира с видом на море">
+</div>
+<div class="listing-info">
+<h3>Студия в центре</h3>
+<p>Цена: 18,000,000 руб.</p>
+<p>Описание: Студия в центре.</p>
+</div>
+</div>
+
+<!-- Модальное окно для карточки 19 -->
+<div class="modal" id="modal-19">
+<div class="modal-content">
+<span class="close" onclick="closeModal(19)">&times;</span>
+<div class="swiper-container">
+  <div class="swiper-wrapper">
+    <div class="swiper-slide"><img src="photo_5_2024-12-11_04-41-57.jpg" alt="Пляж"></div>
+    <div class="swiper-slide"><img src="photo_4_2024-12-11_04-41-57.jpg" alt="Пляж"></div>
+    <div class="swiper-slide"><img src="photo_3_2024-12-11_04-41-57.jpg" alt="Пляж"></div>
+    <div class="swiper-slide"><img src="photo_2_2024-12-11_04-41-57.jpg" alt="Пляж"></div>
+    <div class="swiper-slide"><img src="photo_1_2024-12-11_04-41-57.jpg" alt="Пляж"></div>
+  </div>
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-button-next"></div>
+</div>
+<div class="description">
+  <h3>Студия в центре</h3>
+  <p>Цена: 18,000,000 руб.</p>
+  <p>Студия в центре – Компактная и функциональная квартира с продуманным интерьером, расположенная в самом центре города. В шаговой доступности находятся магазины, кафе и метро, что делает ее идеальным выбором для активного городского образа жизни.</p>
+</div>
+<div class="modal-actions">
+  <button class="contact-seller" onmouseover="showSellerInfo(this)" onmouseout="hideSellerInfo()">Связаться с продавцом</button>
+  <div class="seller-info">
+    <p>Имя: Иван Иванович</p>
+    <p>Телефон: +7 900 123 45 67</p>
+    <p>Email: ivan@example.com</p>
+  </div>
+  <button class="add-to-favorites" onclick="addToFavorites(19)">Добавить в избранное</button>
+</div>
+
+</div>
+</div>
+
+<!-- Карточка 20 -->
+<div class="listing-card" onclick="openModal(20)">
+<div class="image-placeholder">
+<img src="photo_2_2024-12-11_04-44-34.jpg" alt="Современный офис">
+</div>
+<div class="listing-info">
+<h3>Современный офис</h3>
+<p>Цена: 4,800,000 руб.</p>
+<p>Описание: Бизнес-центр класса А.</p>
+</div>
+</div>
+
+<!-- Модальное окно для карточки 20 -->
+<div class="modal" id="modal-20">
+<div class="modal-content">
+<span class="close" onclick="closeModal(20)">&times;</span>
+<div class="swiper-container">
+  <div class="swiper-wrapper">
+    <div class="swiper-slide"><img src="photo_2_2024-12-11_04-44-34.jpg" alt="Офис"></div>
+    <div class="swiper-slide"><img src="photo_1_2024-12-11_04-44-34.jpg" alt="Офис"></div>
+    <div class="swiper-slide"><img src="photo_3_2024-12-11_04-44-34.jpg" alt="Офис"></div>
+  </div>
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-button-next"></div>
+</div>
+<div class="description">
+  <h3>Современный офис</h3>
+  <p>Цена: 4,800,000 руб.</p>
+  <p>Бизнес-центр класса А – Современное офисное пространство, расположенное в престижном районе, с высококачественной отделкой и современными инженерными решениями. Просторные кабинеты, отличная звукоизоляция и доступность всех необходимых коммуникаций создают идеальные условия для вашего бизнеса.</p>
+</div>
+<div class="modal-actions">
+  <button class="contact-seller" onmouseover="showSellerInfo(this)" onmouseout="hideSellerInfo()">Связаться с продавцом</button>
+  <div class="seller-info">
+    <p>Имя: Иван Иванович</p>
+    <p>Телефон: +7 900 123 45 67</p>
+    <p>Email: ivan@example.com</p>
+  </div>
+  <button class="add-to-favorites" onclick="addToFavorites(20)">Добавить в избранное</button>
+</div>
+</div>
+
+</section>
+
+<!-- О нас -->
+<section id="about-us" class="about-us-section">
+  <div class="about-us-content">
+    <div class="about-us-text">
+      <h2>О нас</h2>
+      <p>Компания POINT BunkTowEr — лидер в сфере недвижимости. Мы предоставляем широкий спектр услуг для покупателей, продавцов и арендаторов. Наша команда профессионалов поможет вам выбрать идеальную недвижимость, которая соответствует вашим потребностям. Мы гарантируем высокий уровень обслуживания и индивидуальный подход к каждому клиенту.</p>
+    </div>
+    <div class="about-us-image">
+      <img src="jtOZqljdfqwqKa5IECNOMOdzvfLqbce3eLeq4sAOpJU1VEydC.jpg" alt="Logo" class="about-us-img">
+    </div>
+  </div>
+</section>
+
+<!-- Услуги -->
+<section id="services" class="services-section">
+  <h2>Услуги</h2>
+  <div class="services-content">
+    <div class="service">
+      <h3>Продажа недвижимости</h3>
+      <p>Мы предлагаем широкий выбор объектов для покупки, включая квартиры, дома и коммерческую недвижимость.</p>
+    </div>
+    <div class="service">
+      <h3>Аренда недвижимости</h3>
+      <p>Ищете аренду? Мы поможем найти идеальный вариант жилья или офисного помещения для аренды.</p>
+    </div>
+    <div class="service">
+      <h3>Консультации по инвестициям</h3>
+      <p>Наши эксперты дадут советы по инвестированию в недвижимость и помогут выбрать выгодные предложения.</p>
+    </div>
+    <div class="service">
+      <h3>Юридическое сопровождение</h3>
+      <p>Мы предоставляем юридические услуги, связанные с покупкой, продажей и арендой недвижимости.</p>
+    </div>
+    <div class="service">
+      <h3>Оценка недвижимости</h3>
+      <p>Наши специалисты проводят точную оценку недвижимости для покупки, продажи или аренды.</p>
+    </div>
+    <div class="service">
+      <h3>Подбор ипотечных программ</h3>
+      <p>Поможем выбрать лучшие ипотечные программы для ваших целей и финансовых возможностей.</p>
+    </div>
+    <div class="service">
+      <h3>Управление недвижимостью</h3>
+      <p>Мы предлагаем услуги по управлению недвижимостью, включая аренду и обслуживание объектов.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- Подвал -->
+<footer id="contact" class="footer">
+  <div class="footer-logo">
+    <img src="jtOZqljdfqwqKa5IECNOMOdzvfLqbce3eLeq4sAOpJU1VEydC.jpg" alt="Logo">
+  </div>
+  <div class="footer-contacts">
+    <p>Телефон: +7 (123) 456-78-90</p>
+    <p>Email: info@pointbunktower.com</p>
+  </div>
+  <div class="footer-social">
+    <a href="#">Facebook</a>
+    <a href="#">Instagram</a>
+    <a href="#">Twitter</a>
+  </div>
+</footer>
+
+
+
+
+</body>
+</html>
+
+
+ 

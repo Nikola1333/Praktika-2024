@@ -1,0 +1,939 @@
+/* Общий сброс */
+
+html {
+  scroll-behavior: smooth; /* Включает плавную прокрутку */
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(180deg, #ff914d, #cc6200);
+}
+
+/* Фиксированная шапка */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #ad7325;
+  padding: 10px 0;
+  z-index: 1000;
+  height: 70px;
+  box-sizing: border-box;
+}
+
+/* Логотип */
+.logo {
+  margin-left: 125px;
+}
+
+.logo img {
+  width: 50px;
+}
+
+/* Центральные ссылки */
+.nav-central {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.nav-central ul {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-central a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* Левые кнопки */
+.nav-left {
+  margin-right: 125px;
+  display: flex;
+  gap: 15px;
+}
+
+.nav-left a {
+  color: white;
+  text-decoration: none;
+  padding: 10px 10px;
+  background: #ff9800;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+/* Горизонтальный баннер */
+.horizontal-banner-section {
+  background: #ffc88d;
+  padding: 120px 20px; /* Увеличен отступ от шапки */
+  box-sizing: border-box;
+}
+
+.horizontal-banner-section .swiper-container {
+  width: 100%;
+  height: 700px; /* Увеличена высота для полного показа изображения */
+  overflow: hidden;
+}
+
+.horizontal-banner-section .swiper-slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  position: relative;
+}
+
+.horizontal-banner-section img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.horizontal-banner-section .banner-text {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #e5c493;
+  color: #000;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: 2px solid #ad7325;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* Стрелки навигации */
+.horizontal-banner-section .swiper-button-next,
+.horizontal-banner-section .swiper-button-prev {
+  color: #ad7325;
+  width: 50px;
+  height: 50px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  position: absolute;
+  top: 50%; /* Центрируем кнопки по вертикали */
+  transform: translateY(-50%);
+  z-index: 10;
+}
+
+.horizontal-banner-section .swiper-button-prev {
+  left: 10px; /* Расположение кнопки слева */
+}
+
+.horizontal-banner-section .swiper-button-next {
+  right: 10px; /* Расположение кнопки справа */
+}
+
+.horizontal-banner-section .swiper-button-next:hover,
+.horizontal-banner-section .swiper-button-prev:hover {
+  background: rgba(255, 255, 255, 1);
+}
+
+.horizontal-banner-section .swiper-button-next::after,
+.horizontal-banner-section .swiper-button-prev::after {
+  font-size: 20px;
+}
+
+/* Меню поиска */
+.property-search-section {
+  background: #ff922c; /* Фон секции */
+  padding: 30px 20px;
+  box-sizing: border-box;
+  border-top: 5px solid #ad7325;
+  border-bottom: 5px solid #ad7325;
+}
+
+.property-menu {
+  max-width: 1200px;
+  margin: 0 auto;
+  background: #d4a066;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.menu-tabs {
+  display: flex;
+  gap: 10px;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+.menu-tab {
+  padding: 10px 20px;
+  background: #ad7325;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.menu-tab.active,
+.menu-tab:hover {
+  background: #ff914d;
+}
+
+.search-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-between;
+}
+
+.search-row {
+  flex: 1 1 48%;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.search-row label {
+  font-weight: bold;
+  color: #4a2c00;
+}
+
+.option-button {
+  background: #ff914d;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  margin-right: 10px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.option-button:hover {
+  background: #ad7325;
+}
+
+.option-button.active {
+  background: #ad7325; 
+  color: white;
+}
+
+input[type="text"],
+select {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #ad7325;
+  border-radius: 5px;
+  margin: 10px 0 20px 0;
+  box-sizing: border-box;
+}
+
+.search-button {
+  width: 100%;
+  padding: 15px;
+  background: #ff914d;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background 0.3s;
+}
+
+.search-button:hover {
+  background: #ad7325;
+}
+
+
+/* Заголовок меню */
+.menu-title {
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  color: #ad7325;
+  margin: 20px 0;
+}
+
+/* Секция объявлений */
+.listings-section {
+  background: #f4a261;
+  padding: 30px 20px;
+}
+
+.listings-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-around;
+}
+
+/* Карточки объявлений */
+.listing-card {
+  position: relative;
+  background: #fff;
+  border: 2px solid #ad7325;
+  border-radius: 8px;
+  width: 300px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+}
+
+.listing-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+}
+
+.image-placeholder img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+}
+
+.listing-info {
+  padding: 15px;
+  text-align: left;
+  background: rgba(255, 255, 255, 0.8); /* Полупрозрачный фон */
+  border-top: 1px solid #ad7325;
+}
+
+.listing-info h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #ad7325;
+}
+
+.listing-info p {
+  font-size: 14px;
+  margin: 5px 0;
+}
+
+/* Модальное окно */
+.modal {
+  display: none; /* Скрыто по умолчанию */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* Обрезаем содержимое, выходящее за границы */
+}
+
+.modal-content {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 800px;
+  width: 90%;
+  position: relative;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+  overflow: hidden; /* Убедимся, что изображения остаются внутри модального окна */
+}
+
+.modal .close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  padding: 5px 10px;
+  z-index: 1000;
+}
+
+.description {
+  margin-top: 20px;
+  text-align: left;
+  position: relative;
+}
+
+/* Слайдер внутри модального окна */
+/* Контейнер слайдера */
+.modal .swiper-container {
+  width: 100%;
+  height: 400px;
+  overflow: hidden; /* Убираем изображения за пределами контейнера */
+  border-radius: 8px; /* Красивая граница (если нужно) */
+}
+
+/* Слайды внутри слайдера */
+.modal .swiper-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Изображения заполняют слайд без выхода за границы */
+}
+
+
+.best-offers-section {
+  text-align: center;
+  padding: 20px 0;
+  background: #f4a261; /* Цвет фона */
+  color: white; /* Цвет текста */
+}
+
+.best-offers-title {
+  font-size: 32px;
+  font-weight: bold;
+  margin: 0;
+}
+
+/* Стили модального окна авторизации */
+.auth-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.auth-modal-content {
+  background: #fff;  /* Белый фон */
+  padding: 20px;
+  border-radius: 8px;
+  width: 300px;
+  text-align: center;
+}
+
+.auth-tabs {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+.auth-tab-button {
+  background: none;
+  border: none;
+  color: #333;  /* Темный цвет текста */
+  font-size: 16px;
+  cursor: pointer;
+  position: relative;
+}
+
+.auth-tab-button.active {
+  color: #ff9800;
+}
+
+.auth-tab-button.active::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: #ff9800;
+}
+
+.auth-tab-content {
+  display: none;
+}
+
+.auth-tab-content.active {
+  display: block;
+}
+
+/* Установим одинаковую ширину для всех полей */
+.auth-modal input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;  /* Светлый бордер */
+  border-radius: 4px;
+  background: #f5f5f5;  /* Светлый фон для полей */
+  color: #333;  /* Темный текст */
+}
+
+.auth-button {
+  width: 100%;
+  padding: 10px;
+  background: #ff9800;
+  border: none;
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.auth-button:hover {
+  background: #e68900;
+}
+
+textarea {
+  width: calc(100% - 22px); /* Задаем ширину с учетом паддингов */
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  height: 40px; /* Высота поля описания */
+  resize: none; /* Запрещаем изменение размера */
+}
+
+/* Стили кнопки "Добавить объявление" */
+#open-auth-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background: #ff9800;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+#open-auth-button:hover {
+  background: #e68900;
+}
+
+
+/* Общие стили для меню */
+
+.nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.nav-list > li {
+  position: relative;
+}
+
+.dropdown-button {
+  text-decoration: none;
+  color: #fff; /* Белый текст */
+  font-size: 18px;
+  padding: 10px 20px;
+  display: inline-block;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.dropdown-button:hover {
+  background-color: #ff9800; 
+  transform: translateY(-2px); /* Лёгкий эффект подъёма */
+  border-radius: 8px;
+}
+
+
+
+/* Кнопка-сердечко */
+#open-favorites-button {
+  font-size: 24px;
+  color: white;
+  text-decoration: none;
+  background: #d46b1a;
+  padding: 5px 10px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+#open-favorites-button:hover {
+  background: #ad7325;
+}
+
+/* Модальное окно для избранного */
+#favorites-modal {
+  display: none; /* Скрыто по умолчанию */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+#favorites-modal .modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 80%;
+  max-width: 600px;
+}
+
+#favorites-modal .favorites-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 10px;
+}
+
+#favorites-modal .close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  color: black;
+  cursor: pointer;
+}
+
+
+/* Общий стиль для кнопок в модальном окне */
+.modal-actions button {
+  padding: 10px 15px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+/* Кнопка "Связаться с продавцом" */
+.contact-seller {
+  background-color: #0073ff;
+  color: white;
+  position: relative;
+}
+
+.contact-seller:hover {
+  background-color: #005bb5;
+  transform: translateY(-2px); /* Лёгкий эффект поднятия */
+}
+
+/* Блок информации о продавце */
+.seller-info {
+  display: none;
+  position: absolute;
+  bottom: 50px; /* Расположение над кнопкой */
+  left: 50%;
+  transform: translateX(-50%); /* Центрирование по кнопке */
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 10px 15px;
+  border-radius: 5px;
+  z-index: 10;
+  width: max-content; /* Автоматическая ширина */
+  text-align: left;
+}
+
+.seller-info p {
+  margin: 5px 0;
+  font-size: 14px;
+  color: #333;
+}
+
+/* Показать информацию о продавце при наведении */
+.contact-seller:hover + .seller-info {
+  display: block;
+}
+
+/* Кнопка "Добавить в избранное" */
+.add-to-favorites {
+  background-color: #ffa500;
+  color: white;
+}
+
+.add-to-favorites:hover {
+  background-color: #cc8400;
+  transform: translateY(-2px); /* Лёгкий эффект поднятия */
+}
+
+
+/* Кнопка "Удалить из избранного" */
+.remove-from-favorites {
+  background-color: #ff4d4d;
+  color: white;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  margin-top: 10px;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.remove-from-favorites:hover {
+  background-color: #d93636;
+  transform: translateY(-2px);
+}
+
+/* Стили для модального окна "Избранное" */
+#favorites-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+#favorites-modal .modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 80%;
+  max-width: 600px;
+}
+
+#favorites-modal .favorites-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 10px;
+}
+
+#favorites-modal .close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+
+/* Каталог недвижимости */
+/* Основной стиль для секции каталога недвижимости */
+.catalog-section {
+  padding: 20px;
+  text-align: center;
+  background-color: #ffc88d;
+}
+
+.catalog-title {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.slider-container2 {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 10px 0;
+  gap: 16px;
+}
+
+.slider-container2::-webkit-scrollbar {
+  height: 8px;
+}
+
+.slider-container2::-webkit-scrollbar-thumb {
+  background: #cc6200;
+  border-radius: 4px;
+}
+
+.slider-container2::-webkit-scrollbar-track {
+  background: #e0e0e0;
+}
+
+.listing-card {
+  flex: 0 0 auto;
+  width: 300px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.image-placeholder img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.listing-info {
+  padding: 10px;
+}
+
+.listing-info h3 {
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.listing-info p {
+  font-size: 14px;
+  margin: 4px 0;
+}
+
+
+/* О нас */
+.about-us-section {
+  padding: 40px;
+  background-color: #ffc88d;
+  scroll-margin-top: 70px; /* Отступ равен высоте меню */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.about-us-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  width: 100%;
+}
+
+.about-us-text {
+  flex: 1;
+  margin-right: 20px;
+}
+
+.about-us-text h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.about-us-text p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: #666;
+}
+
+.about-us-image {
+  flex: 0 0 200px; /* Контролируем ширину изображения */
+}
+
+.about-us-img {
+  width: 100%;
+  border-radius: 10px; /* Небольшое закругление */
+  object-fit: cover;
+}
+
+/* Услуги */
+.services-section {
+  padding: 40px;
+  background-color: #f4a261;
+  scroll-margin-top: 70px; /* Отступ равен высоте меню */
+  display: flex;
+  flex-direction: column; /* Чтобы элементы располагались вертикально */
+  align-items: center; /* Выравниваем по горизонтали */
+  justify-content: flex-start; /* Выравниваем по вертикали в верхнюю часть */
+}
+
+.services-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Адаптивная сетка */
+  gap: 20px;
+  max-width: 1200px;
+  width: 100%;
+  text-align: center;
+}
+
+.service {
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.service:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.service h3 {
+  color: #f69f33;
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+}
+
+.service p {
+  font-size: 1rem;
+  color: #666;
+  line-height: 1.5;
+}
+
+/* Заголовок */
+.services-section h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #333;
+  margin: 0; /* Убираем дополнительные отступы */
+  padding-top: 20px; /* Добавляем небольшой отступ сверху, если нужно */
+}
+
+
+
+/* Подвал */
+.footer {
+  background-color: #ad7325; /* Новый фон */
+  color: white;
+  padding: 40px 20px; /* Увеличим отступы для улучшения визуала */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap; /* Поддержка мобильной адаптивности */
+  border-top: 2px solid #f69f33; /* Тонкая линия сверху для выделения */
+}
+
+.footer-logo img {
+  height: 60px; /* Увеличим логотип для лучшей видимости */
+  margin-right: 20px;
+}
+
+.footer-contacts {
+  margin-right: 20px;
+}
+
+.footer-contacts p {
+  margin: 5px 0;
+  font-size: 1rem;
+}
+
+.footer-social {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer-social a {
+  color: white;
+  margin-right: 15px;
+  text-decoration: none;
+  font-size: 1.2rem; /* Чуть увеличим размер шрифта для соцсетей */
+  transition: color 0.3s ease; /* Плавный переход */
+}
+
+.footer-social a:hover {
+  color: #f69f33; /* При наведении меняем цвет на акцентный */
+}
+
+.footer-social a:last-child {
+  margin-right: 0; /* Убираем отступ у последней ссылки */
+}
+
+
+
+
